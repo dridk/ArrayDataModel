@@ -24,12 +24,23 @@ MainWindow::~MainWindow()
 void MainWindow::on_removeButton_clicked()
 {
     qDebug()<<"remove";
-    foreach ( QModelIndex index, ui->listView->selectionModel()->selectedRows())
-    {
-        int row = index.row();
-        mModel->removeAt(row);
+    QList <int> rows;
+    if (ui->listView->selectionModel()->selectedRows().count() > 0) {
+        foreach ( QModelIndex index, ui->listView->selectionModel()->selectedRows())
+            rows.append(index.row());
 
+        for (int i=rows.size()-1; i>=0; i--)
+        {
+            qDebug()<<rows[i];
+            mModel->removeAt(rows[i]);
+        }
     }
+
+    else
+    {
+        QMessageBox::information(this,"error", "select one or more rows");
+    }
+
 }
 
 void MainWindow::on_swapButton_clicked()
