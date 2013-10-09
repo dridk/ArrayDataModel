@@ -1,8 +1,8 @@
 ArrayDataModel
 ==============
 
-ArrayDataModel for Qt. Same than blackberry 10 API but based on QAbstractItemModel
-
+ArrayDataModel for Qt. Same than [blackberry 10 ArrayDataModel](http://developer.blackberry.com/native/reference/cascades/bb__cascades__arraydatamodel.html) but based on QAbstractItemModel
+ 
 ## API 
 ### public slots
 * void	append (const QVariantList &values);
